@@ -1,11 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, Button } from "react-native";
+import Card from "../components/Card";
 
 export default function StartGameScreen() {
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>Commencez une nouvelle partie !</Text>
-      <View style={styles.card}>
+      <Card>
         <View style={styles.inputContainer}>
           <Text>Sélectionner un nombre :</Text>
           <TextInput placeholder="..." />
@@ -14,7 +15,7 @@ export default function StartGameScreen() {
           <Button title="Réinitialiser" />
           <Button title="Valider" />
         </View>
-      </View>
+      </Card>
     </View>
   );
 }
@@ -37,20 +38,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
-  },
-
-  card: {
-    width: "80%",
-    backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4.0,
-    elevation: 5,
-    padding: 10,
-    borderRadius: 10,
   },
 });
