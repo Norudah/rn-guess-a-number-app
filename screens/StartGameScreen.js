@@ -45,8 +45,13 @@ export default function StartGameScreen() {
   if (isValid) {
     confirmationBox = (
       <Card style={styles.confirmationBox}>
-        <Text>Numéro validé</Text>
-        <NumberContainer>{gameValue}</NumberContainer>
+        <Text style={styles.cardTitle}>Numéro validé !</Text>
+        <NumberContainer style={styles.numberContainer}>{gameValue}</NumberContainer>
+        <Button
+          title="Jouer"
+          color={colors.primary}
+          onPress={() => console.log("Game !")}
+        />
       </Card>
     );
   }
@@ -57,7 +62,7 @@ export default function StartGameScreen() {
         <Text style={styles.title}>Commence une nouvelle partie !</Text>
         <Card>
           <View style={styles.inputContainer}>
-            <Text style={styles.inputTitle}>Sélectionne un nombre :</Text>
+            <Text style={styles.cardTitle}>Sélectionne un nombre :</Text>
             <Input
               style={styles.input}
               onChangeText={isOnlyIntegerHandler}
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
   button: {
     width: 110,
   },
-  inputTitle: {
+  cardTitle: {
     paddingBottom: 10,
     fontSize: 16,
   },
@@ -126,5 +131,7 @@ const styles = StyleSheet.create({
   confirmationBox: {
     marginTop: 40,
     alignItems: "center",
+    justifyContent: "space-between",
+    height: 150,
   },
 });
