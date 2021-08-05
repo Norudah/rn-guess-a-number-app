@@ -11,6 +11,7 @@ import {
 
 import Card from "../components/Card";
 import Input from "../components/Input";
+import NumberContainer from "../components/NumberContainer";
 import colors from "../constants/colors";
 
 export default function StartGameScreen() {
@@ -39,6 +40,16 @@ export default function StartGameScreen() {
     setIsValid(false);
     setInputValue("");
   };
+
+  let confirmationBox;
+  if (isValid) {
+    confirmationBox = (
+      <Card style={styles.confirmationBox}>
+        <Text>Numéro validé</Text>
+        <NumberContainer>{gameValue}</NumberContainer>
+      </Card>
+    );
+  }
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -75,7 +86,7 @@ export default function StartGameScreen() {
             </View>
           </View>
         </Card>
-        {isValid && <Text>C'est valide : {gameValue}</Text>}
+        {confirmationBox}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -111,5 +122,9 @@ const styles = StyleSheet.create({
   input: {
     marginVertical: 15,
     fontSize: 18,
+  },
+  confirmationBox: {
+    marginTop: 40,
+    alignItems: "center",
   },
 });
