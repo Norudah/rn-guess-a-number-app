@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { View, Text, Button, StyleSheet, Alert } from "react-native";
 import Card from "../components/Card";
 import NumberContainer from "../components/NumberContainer";
@@ -16,6 +16,7 @@ export default function GameScreen(props) {
   const [computerNumber, setComputerNumber] = useState(
     generateRandomNumber(1, 100, props.guessNumber)
   );
+  const [rounds, setRounds] = useState(0);
 
   const lowerLimit = useRef(1);
   const upperLimit = useRef(100);
@@ -42,8 +43,22 @@ export default function GameScreen(props) {
       lowerLimit.current,
       upperLimit.current
     );
+
+    setRounds((currRounds) => {
+      console.log("currRounds : " + currRounds);
+      console.log("test : " + currRounds++);
+      // console.log("typeof : " + typeof currRounds);
+      return currRounds++;
+    });
     setComputerNumber(newComputerNumber);
   };
+
+  useEffect(() => {
+    if (props.guessNumber === computerNumber) {
+      console.log("partie finie + sensé aller au game over");
+      props.gameOver(rounds);
+    }
+  }, [props.guessNumber, computerNumber, props.updateRounds]);
 
   return (
     <View style={styles.screen}>
