@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import colors from "../constants/colors";
+import MainButton from "../components/MainButton";
 
 export default function GameOver(props) {
   return (
@@ -17,11 +18,7 @@ export default function GameOver(props) {
         L'ordinateur a fait {props.rounds} tentatives pour trouver le nombre{" "}
         {props.guessNumber}
       </Text>
-      <Button
-        title="Encore une autre !"
-        color={colors.primary}
-        onPress={props.onRestartGame}
-      ></Button>
+      <MainButton onPress={props.onRestartGame}>Encore une autre !</MainButton>
     </View>
   );
 }
