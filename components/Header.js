@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
   header: {
     width: "100%",
     backgroundColor: colors.primary,
-    paddingTop: 40,
-    paddingBottom: 10,
+    paddingTop: 50,
+    paddingBottom: 15,
     alignItems: "center",
   },
   title: {

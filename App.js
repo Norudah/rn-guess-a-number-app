@@ -20,7 +20,14 @@ export default function App() {
   let content = <StartGameScreen onStartGame={startGameHandler} />;
   if (selectedNumber && rounds <= 0)
     content = <GameScreen guessNumber={selectedNumber} gameOver={gameOverHandler} />;
-  else if (rounds > 0) content = <GameOver onRestartGame={newGameHandler} />;
+  else if (rounds > 0)
+    content = (
+      <GameOver
+        onRestartGame={newGameHandler}
+        rounds={rounds}
+        guessNumber={selectedNumber}
+      />
+    );
 
   return (
     <View style={styles.screen}>
