@@ -14,7 +14,7 @@ import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 import colors from "../constants/colors";
 
-export default function StartGameScreen() {
+export default function StartGameScreen(props) {
   const [inputValue, setInputValue] = useState("");
   const [gameValue, setGameValue] = useState("");
   const [isValid, setIsValid] = useState(false);
@@ -50,7 +50,7 @@ export default function StartGameScreen() {
         <Button
           title="Jouer"
           color={colors.primary}
-          onPress={() => console.log("Game !")}
+          onPress={props.onStartGame.bind(this, gameValue)}
         />
       </Card>
     );
