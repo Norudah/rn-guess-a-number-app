@@ -15,8 +15,9 @@ export default function GameOver(props) {
         />
       </View>
       <Text style={styles.resumeText}>
-        L'ordinateur a fait {props.rounds} tentatives pour trouver le nombre{" "}
-        {props.guessNumber}
+        L'ordinateur a fait <Text style={styles.textHilighted}>{props.rounds}</Text>{" "}
+        tentatives pour trouver le nombre
+        <Text style={styles.textHilighted}> {props.guessNumber}</Text>
       </Text>
       <MainButton onPress={props.onRestartGame}>Encore une autre !</MainButton>
     </View>
@@ -37,6 +38,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: "70%",
     fontSize: 18,
+  },
+  textHilighted: {
+    color: colors.primary,
   },
   imageContainer: {
     width: 300,

@@ -32,7 +32,7 @@ export default function App() {
   return (
     <View style={styles.screen}>
       <StatusBar style="auto" />
-      <Header title="Titre de l'app" />
+      <Header title="Guess my number ?" />
       {content}
     </View>
   );
